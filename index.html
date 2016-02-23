@@ -3,23 +3,55 @@
 <head>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+    <link rel="stylesheet" type="text/css" href="./_/css/styles.css">
 </head>
-<body ng-app="app">
+<body ng-app="app" ng-controller="MainController as vm" layout="column">
 
-    <div ng-controller="MainController as vm">
-      {{ vm. hello }}
-    </div>
+  <!-- Navbar -->
+  <md-toolbar class="md-toolbar-tools" layout="row">
+    <h1>Clipboard</h1>
+  </md-toolbar>
 
-    <!-- Load Angular Material Library -->
-    <script src="./bower_components/angular/angular.js"></script>
-    <script src="./bower_components/angular-aria/angular-aria.js"></script>
-    <script src="./bower_components/angular-animate/angular-animate.js"></script>
-    <script src="./bower_components/angular-material/angular-material.js"></script>
+  <!-- Main -->
+  <div class="container" flex layout="row">
 
-     <!-- Angular App -->
-    <script src="./_/components/js/app.module.js"></script>
-    <!-- Controllers -->
-    <script src="./_/components/js/components/main/mainController.js"></script>
+    <!-- Sidebar -->
+    <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+      <md-list>
+
+        <md-list-item>
+          <md-button>
+            List 1
+          </md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+
+        <md-list-item>
+          <md-button>
+            List 2
+          </md-button>
+          <md-divider ng-if="!$last"></md-divider>
+        </md-list-item>
+
+      </md-list>
+    </md-sidenav>
+
+    <!-- Content -->
+    <md-content flex id="content">
+    </md-content>
+
+  </div>
+
+  <!-- Load Angular Material Library -->
+  <script src="./bower_components/angular/angular.js"></script>
+  <script src="./bower_components/angular-aria/angular-aria.js"></script>
+  <script src="./bower_components/angular-animate/angular-animate.js"></script>
+  <script src="./bower_components/angular-material/angular-material.js"></script>
+
+   <!-- Angular App -->
+  <script src="./_/components/js/app.module.js"></script>
+  <!-- Controllers -->
+  <script src="./_/components/js/components/main/mainController.js"></script>
 
 </body>
 </html>
