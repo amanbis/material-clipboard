@@ -39,9 +39,24 @@
     <!-- Content -->
     <md-content flex id="content">
       <h2>List 1</h2>
-      
-
+      <div layout-gt-sm="row">
+        <md-input-container class="md-block" flex-gt-sm="">
+          <label>Add new task</label>
+          <input ng-model="user.firstName">
+        </md-input-container>
+      </div>
+       <div flex-xs="" flex="50">
+          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+            Checkbox 1: {{ data.cb1 }}
+          </md-checkbox>
+        </div>
     </md-content>
+
+    <div layout="row">
+      <md-button class="md-primary md-fab md-fab-bottom-right">
+        FAB
+      </md-button>
+    </div>
 
   </div>
 
