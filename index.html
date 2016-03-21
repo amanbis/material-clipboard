@@ -19,7 +19,7 @@
     <md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
       <md-list>
 
-        <md-list-item ng-repeat="list in vm.list">
+        <md-list-item ng-repeat="list in vm.displayList()">
           <md-button ng-click="vm.selectList(list)">
             {{ list.title }}
           </md-button>
@@ -33,10 +33,12 @@
     <md-content flex id="content">
       <h2>{{ vm.selected.title }}</h2>
       <div layout-gt-sm="row">
-        <md-input-container class="md-block" flex-gt-sm="">
-          <label>Add new task</label>
-          <input ng-model="user.firstName">
-        </md-input-container>
+        <form name="taskForm" class="taskForm">
+          <md-input-container class="md-block" flex-gt-sm="">
+            <label>Add new task</label>
+            <input ng-model="user.firstName">
+          </md-input-container>
+        </form>
       </div>
        <div flex-xs="" flex="50" ng-repeat="task in vm.selected.tasks">
           <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">

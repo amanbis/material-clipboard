@@ -3,11 +3,11 @@
 
 	angular
 		.module('app')
-		.factory('dataservice', dataservice)
+		.factory('dataService', dataService)
 
-	dataservice.$inject = ['$q']
+	dataService.$inject = ['$q']
 
-	function dataservice($q) {
+	function dataService($q) {
 		var list = [
 			{
 				title: 'Books',
