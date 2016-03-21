@@ -33,10 +33,10 @@
     <md-content flex id="content">
       <h2>{{ vm.selected.title }}</h2>
       <div layout-gt-sm="row">
-        <form name="taskForm" class="taskForm">
+        <form name="taskForm" class="taskForm" ng-submit="vm.addTask()">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Add new task</label>
-            <input ng-model="user.firstName">
+            <input ng-model="vm.newTask">
           </md-input-container>
         </form>
       </div>

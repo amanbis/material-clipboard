@@ -11,9 +11,12 @@
 		var vm = this
 
 		vm.selected = null
+		vm.newTask = ''
 		vm.list = []
+
 		vm.displayList = displayList
 		vm.selectList = selectList
+		vm.addTask = addTask
 
 		function activate() {
 			return dataService
@@ -22,9 +25,9 @@
 					vm.list.push.apply(vm.list, list)
 					console.log(vm.list)
 					vm.selected = list[0];
+					console.log(vm.selected)
 					return vm.list
 				})
-			console.log('hello')
 		}
 
 		function displayList() {
@@ -36,8 +39,11 @@
 		function selectList(list) {
 			vm.selected = list
 		}
+
+		function addTask() {
+			vm.selected.tasks.push(vm.newTask)
+			vm.newTask = ''
+		}
 	}
-
-
 
 })();
