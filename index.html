@@ -40,9 +40,9 @@
           </md-input-container>
         </form>
       </div>
-       <div flex-xs="" flex="50" ng-repeat="task in vm.selected.tasks">
-          <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
-            {{ task }}: {{ data.cb1 }}
+       <div flex-xs="" flex="50" ng-repeat="task in vm.selected.tasks track by $index">
+          <md-checkbox ng-model="vm.selectTask[index]" ng-init="index = $index" ng-click="vm.completeTask()" aria-label="Checkbox ">
+            {{ task }}: {{ $index }}
           </md-checkbox>
         </div>
 

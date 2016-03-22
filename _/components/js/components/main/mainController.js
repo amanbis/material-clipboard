@@ -12,11 +12,13 @@
 
 		vm.selected = null
 		vm.newTask = ''
+		vm.selectTask = {}
 		vm.list = []
 
 		vm.displayList = displayList
 		vm.selectList = selectList
 		vm.addTask = addTask
+		vm.completeTask = completeTask
 
 		function activate() {
 			return dataService
@@ -43,6 +45,10 @@
 		function addTask() {
 			vm.selected.tasks.push(vm.newTask)
 			vm.newTask = ''
+		}
+
+		function completeTask() {
+			console.log(vm.selectTask)
 		}
 	}
 
