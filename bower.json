@@ -2,6 +2,6 @@
 	"name": "material-clipboard",
 	"description": "A to-do list built with Angular Material",
 	"dependencies": {
-		"angular-material": "~1.0.5"
+		"angular-material": "~1.1.0"
 	}
 }

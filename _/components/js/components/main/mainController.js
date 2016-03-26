@@ -5,9 +5,9 @@
 		.module('app')
 		.controller('MainController', MainController)
 
-	MainController.$inject = ['dataService'];
+	MainController.$inject = ['dataService', '$mdDialog', '$mdMedia'];
 
-	function MainController (dataService) {
+	function MainController (dataService, $mdDialog, $mdMedia) {
 		var vm = this
 
 		vm.selected = null
@@ -18,6 +18,7 @@
 
 		vm.displayList = displayList
 		vm.selectList = selectList
+		vm.listPrompt = listPrompt
 		vm.addTask = addTask
 		vm.completeTask = completeTask
 
@@ -41,6 +42,23 @@
 
 		function selectList(list) {
 			vm.selected = list
+		}
+
+		function listPrompt(e) {
+			var confirm = $mdDialog.prompt()
+	          .title('What would you name your dog?')
+	          .textContent('Bowser is a common name.')
+	          .placeholder('dog name')
+	          .ariaLabel('Dog name')
+	          .targetEvent(e)
+	          .ok('Okay!')
+	          .cancel('I\'m a cat person')
+
+		    $mdDialog.show(confirm).then(function(result) {
+		    	console.log('You decided to name your dog ' + result + '.')
+		    }, function() {
+		    	console.log('You didn\'t name your dog.')
+		    })
 		}
 
 		function addTask() {
