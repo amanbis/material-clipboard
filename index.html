@@ -41,8 +41,8 @@
         </form>
       </div>
        <div flex-xs="" flex="50" ng-repeat="task in vm.selected.tasks track by $index">
-          <md-checkbox ng-model="vm.selectTask[index]" ng-init="index = $index" ng-click="vm.completeTask()" aria-label="Checkbox ">
-            {{ task }}: {{ $index }}
+          <md-checkbox ng-model="vm.selectTask[task.id]" ng-click="vm.completeTask()" aria-label="Checkbox ">
+            {{ task.desc }}: {{ vm.selectTask[task.id] }}
           </md-checkbox>
         </div>
 

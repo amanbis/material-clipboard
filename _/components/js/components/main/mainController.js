@@ -14,6 +14,7 @@
 		vm.newTask = ''
 		vm.selectTask = {}
 		vm.list = []
+		var taskID = 6
 
 		vm.displayList = displayList
 		vm.selectList = selectList
@@ -43,7 +44,8 @@
 		}
 
 		function addTask() {
-			vm.selected.tasks.push(vm.newTask)
+			taskID++
+			vm.selected.tasks.push({id: taskID, desc: vm.newTask})
 			vm.newTask = ''
 		}
 
