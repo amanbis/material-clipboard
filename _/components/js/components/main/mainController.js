@@ -46,19 +46,27 @@
 
 		function listPrompt(e) {
 			var confirm = $mdDialog.prompt()
-	          .title('What would you name your dog?')
-	          .textContent('Bowser is a common name.')
-	          .placeholder('dog name')
+	          .title('Would you like to add a new list?')
+	          .placeholder('New list title')
 	          .ariaLabel('Dog name')
 	          .targetEvent(e)
-	          .ok('Okay!')
-	          .cancel('I\'m a cat person')
+	          .ok('Add')
+	          .cancel('Cancel')
 
 		    $mdDialog.show(confirm).then(function(result) {
-		    	console.log('You decided to name your dog ' + result + '.')
+		    	addList(result)
 		    }, function() {
 		    	console.log('You didn\'t name your dog.')
 		    })
+		}
+
+		function addList(title) {
+			var newList = {
+				title: title,
+				tasks: []
+			}
+
+			return vm.list.push(newList)
 		}
 
 		function addTask() {
