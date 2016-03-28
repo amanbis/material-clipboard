@@ -33,12 +33,13 @@
     <md-content flex id="content">
       <h2>{{ vm.selected.title }}</h2>
       <div layout-gt-sm="row">
-        <form name="taskForm" class="taskForm" ng-submit="vm.addTask()">
+        <form name="taskForm" novalidate class="taskForm" ng-submit="taskForm.$valid && vm.newTask && vm.addTask()">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Add new task</label>
-            <input md-minlength="2" name="description" ng-model="vm.newTask">
+            <input ng-minlength="5" md-maxlength="30" name="description" ng-model="vm.newTask">
             <div ng-messages="taskForm.description.$error">
-              <div ng-message="md-minlength">The name has to be more than 2 characters long.</div>
+              <div ng-message="minlength">The description has to be more than 5 characters long.</div>
+               <div ng-message="md-maxlength">The description has to be less than 30 characters long.</div>
             </div>
           </md-input-container>
         </form>
@@ -48,12 +49,11 @@
             {{ task.desc }}: {{ vm.selectTask[task.id] }}
           </md-checkbox>
         </div>
-
     </md-content>
 
     <div layout="row">
-      <md-button class="md-primary md-fab md-fab-bottom-right" ng-click="vm.listPrompt($event)">
-        FAB
+      <md-button class="md-primary md-fab md-fab-bottom-right" aria-label="Add a new list" ng-click="vm.listPrompt($event)">
+        <md-icon md-svg-src="_/img/icons/add.svg"></md-icon>
       </md-button>
     </div>
 
