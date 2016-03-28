@@ -48,7 +48,7 @@
 			var confirm = $mdDialog.prompt()
 	          .title('Would you like to add a new list?')
 	          .placeholder('New list title')
-	          .ariaLabel('Dog name')
+	          .ariaLabel('New list title')
 	          .targetEvent(e)
 	          .ok('Add')
 	          .cancel('Cancel')
