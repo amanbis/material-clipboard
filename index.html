@@ -36,7 +36,10 @@
         <form name="taskForm" class="taskForm" ng-submit="vm.addTask()">
           <md-input-container class="md-block" flex-gt-sm="">
             <label>Add new task</label>
-            <input ng-model="vm.newTask">
+            <input md-minlength="2" name="description" ng-model="vm.newTask">
+            <div ng-messages="taskForm.description.$error">
+              <div ng-message="md-minlength">The name has to be more than 2 characters long.</div>
+            </div>
           </md-input-container>
         </form>
       </div>
